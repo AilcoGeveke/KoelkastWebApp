@@ -1,0 +1,18 @@
+﻿@using System.Text
+@using System.Web.Mvc
+@functions {
+    /* geen direct html dus m.b.v. string(stringbuilder) */
+    public static HtmlString OrderedList(IEnumerable<string> items)
+    {
+        var sb = new StringBuilder();
+        var orderedList = new TagBuilder("ol");
+        foreach (var item in items)
+        {
+            var listItem = new TagBuilder("li");
+            listItem.SetInnerText(item);
+            sb.AppendLine(listItem.ToString(TagRenderMode.Normal));
+        }
+        orderedList.InnerHtml = sb.ToString();
+        return new HtmlString(orderedList.ToString(TagRenderMode.Normal));
+    }
+}

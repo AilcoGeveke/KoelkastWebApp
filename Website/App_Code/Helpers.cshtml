@@ -1,0 +1,9 @@
+﻿@helper OrderedList(IEnumerable<string> items)
+{
+    <ol>
+        @foreach (var item in items)
+        {
+            <li>@item</li>
+        }
+    </ol>
+}
