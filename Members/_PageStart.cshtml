@@ -1,0 +1,9 @@
+﻿@* ~/_PageStart.cshtml *@
+@{
+    PageData["SecretMessage"] = "Alleen voor leden!";
+    if (!WebSecurity.IsAuthenticated)
+    {   
+        string returnUrl = Request.RawUrl;
+        Response.Redirect("~/Account/Login?ReturnUrl=" + returnUrl);
+    }
+}
